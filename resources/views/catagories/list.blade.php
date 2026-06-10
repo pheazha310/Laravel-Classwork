@@ -19,7 +19,7 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $category->name }}</td>
-                        <td>{{ $category->dec }}</td>
+                        <td>{{ $category->description }}</td>
                         <td>
                             <a href="" data-bs-toggle="modal" data-bs-target="#category{{ $category->id }}">
                                 <i class="fa-solid fa-eye text-success"></i>

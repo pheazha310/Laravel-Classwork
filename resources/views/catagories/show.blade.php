@@ -12,7 +12,7 @@
                         {{ $category->name }}
                     </div>
                     <div class="col-md-12">
-                        {{ $category->dec }}
+                        {{ $category->description }}
                     </div>
                 </div>
             </div>

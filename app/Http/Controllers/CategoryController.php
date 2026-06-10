@@ -20,12 +20,14 @@ class CategoryController extends Controller
 
     public function store()
     {
-        Category::create([
-            'name' => request()->name,
-            'description' => request()->description,
+        $data = request()->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
         ]);
 
-        return redirect('/categories');
+        Category::create($data);
+
+        return redirect()->route('categories.index');
     }
 
     public function edit($id)
@@ -38,12 +40,15 @@ class CategoryController extends Controller
     public function update($id)
     {
         $category = Category::findOrFail($id);
-        $category->update([
-            'name' => request()->name,
-            'description' => request()->description,
+
+        $data = request()->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
         ]);
 
-        return redirect('/categories');
+        $category->update($data);
+
+        return redirect()->route('categories.index');
     }
 
     public function destroy($id)
@@ -51,6 +56,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect('/categories');
+        return redirect()->route('categories.index');
     }
 }
