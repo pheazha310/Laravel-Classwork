@@ -14,6 +14,9 @@
         <li>
             <a href="{{ route('customers.index') }}">Customer</a>
         </li>
+        <li>
+            <a href="{{ route('categories.index') }}">Categories</a>
+        </li>
     </ul>
 </body>
 </html>

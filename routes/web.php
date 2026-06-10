@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CatagoriesController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,15 +29,27 @@ Route::get('/users/{username}/{email}', [UserController::class, 'getUsernameEmai
     ->name('users.getUsernameEmail');
 
 // Categories routes:
-Route::get('/categories', [CatagoriesController::class, 'index'])
+Route::get('/categories', [CategoryController::class, 'index'])
     ->name('categories.index');
-Route::get('/categories/create', [CatagoriesController::class, 'create'])
+Route::get('/categories/create', [CategoryController::class, 'create'])
     ->name('categories.create');
-Route::post('/categories/store', [CatagoriesController::class, 'store'])
+Route::post('/categories/store', [CategoryController::class, 'store'])
     ->name('categories.store');
-Route::get('/categories/{id}', [CatagoriesController::class, 'edit'])
+Route::get('/categories/{id}', [CategoryController::class, 'edit'])
     ->name('categories.edit');
-Route::put('/categories/{id}', [CatagoriesController::class, 'update'])
+Route::put('/categories/{id}', [CategoryController::class, 'update'])
     ->name('categories.update');
-Route::delete('/categories/{id}', [CatagoriesController::class, 'destroy'])
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])
     ->name('categories.destroy');
+
+// Products routes:
+Route::get('/products', [ProductController::class, 'index'])
+    ->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])
+    ->name('products.create');
+Route::post('/products/store', [ProductController::class, 'store'])
+    ->name('products.store');
+Route::get('/products/{id}', [ProductController::class, 'edit'])
+    ->name('products.edit');
+Route::put('/products/{id}', [ProductController::class, 'update'])
+    ->name('products.update');
