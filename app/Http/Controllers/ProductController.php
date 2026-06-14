@@ -13,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
         return view('products.list', compact('products'));
     }
 
@@ -35,7 +35,7 @@ class ProductController extends Controller
             [
                 'name' => request()->name,
                 'price' => request()->price,
-                'qty' => request()->qty,
+                'stock' => request()->stock,
                 'category_id' => request()->category_id,
             ]
         );
@@ -72,7 +72,7 @@ class ProductController extends Controller
             [
                 'name' => request()->name,
                 'price' => request()->price,
-                'qty' => request()->qty,
+                'stock' => request()->stock,
                 'category_id' => request()->category_id,
             ]
         );
