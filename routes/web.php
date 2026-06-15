@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,3 +54,20 @@ Route::get('/products/{id}', [ProductController::class, 'edit'])
     ->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])
     ->name('products.update');
+
+
+
+Route::get('/students', [StudentController::class, 'index'])
+    ->name('students.index');
+Route::get('/students/create', [StudentController::class, 'create'])
+    ->name('students.create');
+Route::post('/students/store', [StudentController::class, 'store'])
+    ->name('students.store');
+Route::get('/students/{id}', [StudentController::class, 'edit'])
+    ->name('students.edit');
+Route::get('/students/show', [StudentController::class, 'show'])
+    ->name('students.show');
+Route::put('/students/{id}', [StudentController::class, 'update'])
+    ->name('students.update');
+Route::delete('/students/{id}', [StudentController::class, 'destroy'])
+    ->name('students.destroy');
